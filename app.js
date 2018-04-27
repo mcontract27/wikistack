@@ -5,7 +5,7 @@ const layout = require('./views/layout');
 const models = require('./models');
 
 const app = express();
-app.use(morgan);
+morgan('tiny');
 app.use(bodyParser.json());
 
 app.get('/', (req, res) => {
