@@ -3,10 +3,15 @@ const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const layout = require('./views/layout'); 
 const models = require('./models');
+const routerWiki = require('./routes/wiki')
+const routerUser = require('./routes/user')
 
 const app = express();
 morgan('tiny');
-app.use(bodyParser.json());
+
+app.use(bodyParser.urlencoded({extended: false}));
+app.use('/user/', routerUser);
+app.use('/wiki/', routerWiki);
 
 app.get('/', (req, res) => {
     res.send(layout('Hello world!'));
