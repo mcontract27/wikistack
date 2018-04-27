@@ -11,6 +11,9 @@ module.exports = (pages) => layout(html`
   <hr>
   <ul class="list-unstyled">
     <ul>
-      <!-- PLACEHOLDER LIST OF PAGES -->
+      ${pages.map(page => {
+        return `<li>${page.title}</li>`
+      }).join('')}
+    <!-- PLACEHOLDER LIST OF PAGES -->
     </ul>
   </ul>`);
