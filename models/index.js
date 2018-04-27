@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
-const db = new Sequelize('postgres://localhost:5432/wikistack', {
-    logging: false});
+const db = new Sequelize('postgres://localhost:5432/wikistack',
+    {logging: false});
 
 db.authenticate().then(() => {
     console.log('connected to the database');
@@ -34,6 +34,11 @@ db.authenticate().then(() => {
       allowNull: false,
       validate: { isEmail: true }
     }
+  });
+
+  Page.beforeValidate((page) => {
+      page.slug = page.title.replace(/\s+/g, '_').replace(/\W/g, '');
+      console.log(page.slug);
   });
   
 module.exports = { db, Page, User }

@@ -11,8 +11,8 @@ router.post('/', async (req, res, next) => {
     const page = new Page({
         title: req.body.title,
         content: req.body.content,
-        status: req.body.status,
-        slug: req.body.title.replace(/\s+/g, "_").replace(/[^\w\-]+/g, '')
+        status: req.body.status
+        // slug: req.body.title.replace(/\s+/g, "_").replace(/[^\w\-]+/g, '')
     })
 
     try {
