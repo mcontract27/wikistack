@@ -12,8 +12,8 @@ module.exports = (pages) => layout(html`
   <ul class="list-unstyled">
     <ul>
       ${pages.map(page => {
-        return `<li>${page.title}</li>`
-      }).join('')}
+        return `<li><a href = "/wiki/${page.slug}">${page.title}</a></li>`
+      })}
     <!-- PLACEHOLDER LIST OF PAGES -->
     </ul>
   </ul>`);

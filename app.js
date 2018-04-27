@@ -10,7 +10,7 @@ const app = express();
 morgan('tiny');
 
 app.use(bodyParser.urlencoded({extended: false}));
-app.use('/user/', routerUser);
+app.use('/users/', routerUser);
 app.use('/wiki/', routerWiki);
 
 app.get('/', (req, res) => {

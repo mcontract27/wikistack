@@ -38,7 +38,8 @@ db.authenticate().then(() => {
 
   Page.beforeValidate((page) => {
       page.slug = page.title.replace(/\s+/g, '_').replace(/\W/g, '');
-      console.log(page.slug);
   });
+
+  Page.belongsTo(User, { as: 'author' });
   
 module.exports = { db, Page, User }
